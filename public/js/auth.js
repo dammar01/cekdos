@@ -80,7 +80,7 @@ if (auth) {
   }
 } else {
   const path = window.location.pathname;
-  if (!path.startsWith("/login")) {
+  if (!path.startsWith("/login") && !path.startsWith("/register")) {
     window.location.href = "/login.html";
   }
 }
