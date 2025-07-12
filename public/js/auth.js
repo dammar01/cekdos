@@ -3,6 +3,7 @@ if (!localStorage.getItem("data_user")) {
     {
       nama: "Dammar Syaputra",
       username: "3202316085",
+      nip_dospem: "0001",
       password: "asda",
       role: "mahasiswa",
       data: {
@@ -17,6 +18,7 @@ if (!localStorage.getItem("data_user")) {
     {
       nama: "Haikal Bagas Putra",
       username: "3202316104",
+      nip_dospem: "0002",
       password: "asda",
       role: "mahasiswa",
       data: {
@@ -27,6 +29,7 @@ if (!localStorage.getItem("data_user")) {
       nama: "Suharsono",
       username: "0001",
       password: "asda",
+      nim_mahasiswa: ["3202316085"],
       role: "dosen",
       data: {
         jadwal_saya: [],
@@ -36,6 +39,7 @@ if (!localStorage.getItem("data_user")) {
       nama: "Satriyo",
       username: "0002",
       password: "asda",
+      nim_mahasiswa: ["3202316104"],
       role: "dosen",
       data: {
         jadwal_saya: [],

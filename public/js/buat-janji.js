@@ -1,18 +1,70 @@
 $(document).ready(function () {
   const data_dosen_buat_janji = [
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>'],
-    ["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>']
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
+    [
+      "3202316104",
+      "Haikal Bagas Putra",
+      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
+    ],
   ];
   $("#dosen-buat-janji").DataTable({
     data: data_dosen_buat_janji,
@@ -46,7 +98,9 @@ $(document).ready(function () {
       [10, 25, 50, "All"],
     ],
   });
-  const data_mahasiswa_buat_janji = [["3202316104", "Haikal Bagas Putra", "November", "<span class='stat-disetujui'>Disetujui</span>"]];
+  const data_mahasiswa_buat_janji = [
+    ["3202316104", "Haikal Bagas Putra", "November", "<span class='stat-disetujui'>Disetujui</span>"],
+  ];
   $("#mahasiswa-buat-janji").DataTable({
     data: data_mahasiswa_buat_janji,
     dom:
@@ -79,23 +133,52 @@ $(document).ready(function () {
       [10, 25, 50, "All"],
     ],
   });
-  $('#tgl-janji').on('click', function () {
-    // Ambil nilai tanggal dari input
-    const tanggalJanji = $('#exampleFormControlInput1').val();
+  $("#save-janji").on("click", function () {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
 
-    // Cek apakah tanggal diisi
-    if (tanggalJanji) {
-      console.log('Tanggal yang dipilih:', tanggalJanji); // Atau kirim ke server
-      alert('Tanggal janji berhasil disimpan: ' + tanggalJanji);
+    const tanggalJanji = $("#tanggal-janji").val();
+    const auth = JSON.parse(localStorage.getItem("auth"));
+    const dataUser = JSON.parse(localStorage.getItem("data_user"));
 
-      // Reset form jika mau
-      $('#exampleFormControlInput1').val('');
-
-      // Tutup modal (opsional karena button sudah punya data-bs-dismiss)
-      $('#exampleModal').modal('hide');
+    if (!tanggalJanji) {
+      Toast.fire({
+        icon: "error",
+        title: `Harap Pilih Tanggal Terlebih Dahulu`,
+      });
+      return;
+    }
+    const userIndex = dataUser.findIndex((user) => user.username === auth.username);
+    const alreadyExists = dataUser[userIndex].data.jadwal_saya.some(([tanggal]) => tanggal === tanggalJanji);
+    if (alreadyExists) {
+      Toast.fire({
+        icon: "error",
+        title: `Tanggal Janji Tersebut Telah Terdaftar`,
+      });
+      return;
+    }
+    if (userIndex !== -1) {
+      dataUser[userIndex].data.jadwal_saya.push([tanggalJanji, 0]);
+      auth.data.jadwal_saya.push([tanggalJanji, 0]);
+      localStorage.setItem("data_user", JSON.stringify(dataUser));
+      localStorage.setItem("auth", JSON.stringify(auth));
+      Toast.fire({
+        icon: "success",
+        title: "Tanggal janji " + tanggalJanji + " Berhasil disimpan",
+      });
+      $("#tanggal-janji").val("");
+      $("#exampleModal").modal("hide");
     } else {
-      alert('Harap pilih tanggal terlebih dahulu.');
+      alert("User tidak ditemukan di data_user.");
     }
   });
-
 });
