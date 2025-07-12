@@ -484,3 +484,35 @@ body {
 .dataTable td {
   border-bottom: 1px solid var(--tiernary-color);
 }
+
+.navbar-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-section .logo-area {
+  display: flex;
+  align-items: center;
+  color: var(--foreground-color);
+  text-decoration: none;
+}
+
+.navbar-section .img-logo,
+.navbar-section .avatar-img {
+  height: 50px;
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.navbar-section .img-logo img,
+.navbar-section .avatar-img img {
+  height: 100%;
+  width: auto;
+}
+
+main {
+  padding: 1rem 2rem;
+}
