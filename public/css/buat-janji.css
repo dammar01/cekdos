@@ -1,0 +1,82 @@
+@import url("./main-style.css");
+
+.btn {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.button-aksi {
+    background-color: #047857;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.button-aksi:hover {
+    background-color: #035d43;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.dt-input {
+    background-color: var(--secondary-color);
+    color: var(--foreground-color);
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+}
+
+.dt-paging-button {
+    background-color: var(--secondary-color);
+    color: var(--foreground-color);
+    border: none;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.dt-paging-button.current {
+    background-color: var(--tiernary-color) !important;
+}
+
+.dt-paging-button.disabled {
+    cursor: default !important;
+    background-color: var(--secondary-color);
+    opacity: 0.3;
+}
+
+.dataTable {
+    background-color: var(--secondary-color);
+}
+
+.dataTable td,
+.dataTable th {
+    padding: 0.75rem;
+}
+
+.dataTable th {
+    background-color: var(--tiernary-color);
+}
+
+.dataTable td {
+    border-bottom: 1px solid var(--tiernary-color);
+}
+
+.dt-type-numeric {
+    text-align: start !important;
+}

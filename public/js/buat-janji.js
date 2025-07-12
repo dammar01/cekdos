@@ -1,5 +1,7 @@
 $(document).ready(function () {
-  $("#example").DataTable({
+  const data_buat_janji = [["3202316104", "Haikal Bagas Putra", '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>']];
+  $("#buat-janji").DataTable({
+    data: data_buat_janji,
     dom:
       "<'row align-items-center'" +
       "<'col-auto'<'row d-flex flex-row align-items-center justify-content-start' <'col-auto showdata 'l><'col-auto mb-0'B>>>" +
