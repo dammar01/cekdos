@@ -11,6 +11,7 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
+
 .button-aksi {
     background-color: #047857;
     color: white;
@@ -25,6 +26,33 @@
 
 .button-aksi:hover {
     background-color: #035d43;
+}
+
+.stat-disetujui {
+    background-color: #007f5f;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.stat-pending {
+    background-color: #c79c33;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.stat-selesai {
+    background-color: #0000d6;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .table-responsive {
