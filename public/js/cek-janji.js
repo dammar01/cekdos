@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  const auth = JSON.parse(localStorage.getItem("auth"));
+  const dataUser = JSON.parse(localStorage.getItem("data_user"));
+
   const data_dosen_buat_janji = [
     [
       "3202316104",
@@ -99,11 +102,26 @@ $(document).ready(function () {
     ],
   });
 
-  const auth = JSON.parse(localStorage.getItem("auth"));
-  const dataUser = JSON.parse(localStorage.getItem("data_user"));
   const mahasiswaBimbingan = dataUser.filter((user) => user.role === "mahasiswa" && user.nip_dospem === auth.nip_dospem);
+  const data_mahasiswa_buat_janji = [];
+  mahasiswaBimbingan.forEach((mhs) => {
+    const nim = mhs.username;
+    const nama = mhs.nama;
 
-  let data_mahasiswa_buat_janji = [];
+    mhs.data.jadwal_saya.forEach(([tanggalStr, statusCode]) => {
+      const statusHTML =
+        statusCode === 0
+          ? "<span class='stat-pending'>Pending</span>"
+          : statusCode === 1
+          ? "<span class='stat-disetujui'>Disetujui</span>"
+          : statusCode === 2
+          ? "<span class='stat-selesai'>Selesai</span>"
+          : "<span class='stat-ditolak'>Ditolak</span>";
+
+      data_mahasiswa_buat_janji.push([nim, nama, tanggalStr, statusHTML]);
+    });
+  });
+
   $("#mahasiswa-buat-janji").DataTable({
     data: data_mahasiswa_buat_janji,
     dom:
