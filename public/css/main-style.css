@@ -516,3 +516,32 @@ body {
 main {
   padding: 1rem 2rem;
 }
+
+.dt-type-numeric {
+  text-align: start !important;
+}
+
+.stat-disetujui {
+  background-color: #007f5f;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.stat-pending {
+  background-color: #c79c33;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.stat-selesai {
+  background-color: #0000d6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
