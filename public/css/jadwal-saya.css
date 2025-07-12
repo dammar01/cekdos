@@ -1,0 +1,26 @@
+@import url("./main-style.css");
+
+.stat-disetujui {
+    background-color: #007F5F;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.stat-pending {
+    background-color: #C79C33;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.stat-selesai {
+    background-color: #0000D6;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
