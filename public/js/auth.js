@@ -16,6 +16,21 @@ if (!localStorage.getItem("data_user")) {
       },
     },
     {
+      nama: "Adzan Fadhel",
+      username: "3202316563",
+      nip_dospem: "0001",
+      password: "asda",
+      role: "mahasiswa",
+      data: {
+        jadwal_saya: [
+          ["2025-07-03", 1],
+          ["2025-10-05", 0],
+          ["2025-07-29", 2],
+          ["2025-02-11", -1],
+        ],
+      },
+    },
+    {
       nama: "Haikal Bagas Putra",
       username: "3202316104",
       nip_dospem: "0002",

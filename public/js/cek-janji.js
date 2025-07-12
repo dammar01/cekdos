@@ -98,9 +98,12 @@ $(document).ready(function () {
       [10, 25, 50, "All"],
     ],
   });
-  const data_mahasiswa_buat_janji = [
-    ["3202316104", "Haikal Bagas Putra", "November", "<span class='stat-disetujui'>Disetujui</span>"],
-  ];
+
+  const auth = JSON.parse(localStorage.getItem("auth"));
+  const dataUser = JSON.parse(localStorage.getItem("data_user"));
+  const mahasiswaBimbingan = dataUser.filter((user) => user.role === "mahasiswa" && user.nip_dospem === auth.nip_dospem);
+
+  let data_mahasiswa_buat_janji = [];
   $("#mahasiswa-buat-janji").DataTable({
     data: data_mahasiswa_buat_janji,
     dom:
@@ -147,8 +150,6 @@ $(document).ready(function () {
     });
 
     const tanggalJanji = $("#tanggal-janji").val();
-    const auth = JSON.parse(localStorage.getItem("auth"));
-    const dataUser = JSON.parse(localStorage.getItem("data_user"));
 
     if (!tanggalJanji) {
       Toast.fire({
