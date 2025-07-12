@@ -25,6 +25,15 @@
   font-size: 14px;
 }
 
+.stat-ditolak {
+  background-color: #d60000;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -73,6 +82,7 @@
   border-bottom: 1px solid var(--tiernary-color);
 }
 
-.dt-type-numeric {
+.dt-type-numeric,
+.dt-type-date {
   text-align: start !important;
 }

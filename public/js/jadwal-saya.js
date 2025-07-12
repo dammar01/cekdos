@@ -1,68 +1,98 @@
 $(document).ready(function () {
-    const data_jadwal_saya_mahasiswa = [["30 Juli 2025","0001","Suharsono","<span class='stat-disetujui'>Disetujui</span>"],["5 Agustus 2025","0001","Suharsono","<span class='stat-pending'>Pending</span>"],["11 Juli 2025","0001","Suharsono","<span class='stat-selesai'>Selesai</span>"]]
-  $("#jadwal-saya-mahasiswa").DataTable({
-    data: data_jadwal_saya_mahasiswa,
-    dom:
-      "<'row align-items-center'" +
-      "<'col-auto'<'row d-flex flex-row align-items-center justify-content-start' <'col-auto showdata 'l><'col-auto mb-0'B>>>" +
-      "<'col d-flex align-items-center justify-content-end searchdata mb-2'f>" +
-      ">" +
-      "<'table-responsive mb-2'tr>" +
-      "<'row justify-content-between'" +
-      "<'col-md-6 ps-2'i>" +
-      "<'col-md-6 pe-2'p>" +
-      ">",
-    language: {
-      lengthMenu: "_MENU_",
-      processing: `
+  const auth = JSON.parse(localStorage.getItem("auth"));
+  const data_table = auth.data.jadwal_saya;
+  if (auth.role === "mahasiswa") {
+    $("#jadwal-saya-mahasiswa").DataTable({
+      data: data_table,
+      columnDefs: [
+        {
+          targets: 0,
+          render: function (data) {
+            const date = new Date(data);
+            return date.toLocaleDateString("id-ID", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
+          },
+        },
+        {
+          targets: 1,
+          render: function (data) {
+            if (data == 0) {
+              return "<span class='stat-pending'>Pending</span>";
+            } else if (data == 1) {
+              return "<span class='stat-disetujui'>Disetujui</span>";
+            } else if (data == 2) {
+              return "<span class='stat-selesai'>Selesai</span>";
+            } else {
+              return "<span class='stat-ditolak'>Ditolak</span>";
+            }
+          },
+        },
+      ],
+      dom:
+        "<'row align-items-center'" +
+        "<'col-auto'<'row d-flex flex-row align-items-center justify-content-start' <'col-auto showdata 'l><'col-auto mb-0'B>>>" +
+        "<'col d-flex align-items-center justify-content-end searchdata mb-2'f>" +
+        ">" +
+        "<'table-responsive mb-2'tr>" +
+        "<'row justify-content-between'" +
+        "<'col-md-6 ps-2'i>" +
+        "<'col-md-6 pe-2'p>" +
+        ">",
+      language: {
+        lengthMenu: "_MENU_",
+        processing: `
                 <div class="container-spinner">
                     <div class="spinner"></div>
                     <p class="pt-3">Loading ...</p>
                 </div>`,
-      zeroRecords: `
+        zeroRecords: `
                 <p style="font-size: 15px; font-weight: 500; margin-top:10px; margin-bottom: 5%;">Data Belum Tersedia</p>`,
-      search: "",
-      searchPlaceholder: "Search",
-    },
-    destroy: true,
-    responsive: true,
-    pageLength: 10,
-    lengthMenu: [
-      [10, 25, 50, -1],
-      [10, 25, 50, "All"],
-    ],
-  });
-  const data_jadwal_saya_dosen = [["30 Juli 2025","3202316085","Dammar Syaputra","<span class='stat-disetujui'>Disetujui</span>"],["5 Agustus 2025","3202316085","Dammar Syaputra","<span class='stat-pending'>Pending</span>"],["11 Juli 2025","3202316085","Dammar Syaputra","<span class='stat-selesai'>Selesai</span>"]]
-  $("#jadwal-saya-dosen").DataTable({
-    data: data_jadwal_saya_dosen,
-    dom:
-      "<'row align-items-center'" +
-      "<'col-auto'<'row d-flex flex-row align-items-center justify-content-start' <'col-auto showdata 'l><'col-auto mb-0'B>>>" +
-      "<'col d-flex align-items-center justify-content-end searchdata mb-2'f>" +
-      ">" +
-      "<'table-responsive mb-2'tr>" +
-      "<'row justify-content-between'" +
-      "<'col-md-6 ps-2'i>" +
-      "<'col-md-6 pe-2'p>" +
-      ">",
-    language: {
-      lengthMenu: "_MENU_",
-      processing: `
+        search: "",
+        searchPlaceholder: "Search",
+      },
+      destroy: true,
+      responsive: true,
+      pageLength: 10,
+      lengthMenu: [
+        [10, 25, 50, -1],
+        [10, 25, 50, "All"],
+      ],
+    });
+  } else {
+    $("#jadwal-saya-dosen").DataTable({
+      data: data_table,
+      dom:
+        "<'row align-items-center'" +
+        "<'col-auto'<'row d-flex flex-row align-items-center justify-content-start' <'col-auto showdata 'l><'col-auto mb-0'B>>>" +
+        "<'col d-flex align-items-center justify-content-end searchdata mb-2'f>" +
+        ">" +
+        "<'table-responsive mb-2'tr>" +
+        "<'row justify-content-between'" +
+        "<'col-md-6 ps-2'i>" +
+        "<'col-md-6 pe-2'p>" +
+        ">",
+      language: {
+        lengthMenu: "_MENU_",
+        processing: `
                 <div class="container-spinner">
                     <div class="spinner"></div>
                     <p class="pt-3">Loading ...</p>
                 </div>`,
-      zeroRecords: `
+        zeroRecords: `
                 <p style="font-size: 15px; font-weight: 500; margin-top:10px; margin-bottom: 5%;">Data Belum Tersedia</p>`,
-      search: "",
-      searchPlaceholder: "Search",
-    },
-    destroy: true,
-    responsive: true,
-    pageLength: 10,
-    lengthMenu: [
-      [10, 25, 50, -1],
-      [10, 25, 50, "All"],
-    ],
-  });
+        search: "",
+        searchPlaceholder: "Search",
+      },
+      destroy: true,
+      responsive: true,
+      pageLength: 10,
+      lengthMenu: [
+        [10, 25, 50, -1],
+        [10, 25, 50, "All"],
+      ],
+    });
+  }
 });

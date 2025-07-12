@@ -454,6 +454,27 @@ body {
   cursor: pointer;
 }
 
+.position-relative {
+  position: relative;
+}
+
+.logout-dropdown {
+  position: absolute;
+  top: 100%;
+  color: var(--background-color);
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.d-none {
+  display: none;
+}
 .cursor-pointer {
   cursor: pointer !important;
 }

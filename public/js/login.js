@@ -11,9 +11,8 @@ $(document).ready(function () {
     },
   });
 
-  if (localStorage.getItem("auth")) {
-    const parsed_user = JSON.parse(auth);
-    if (parsed_user.role === "mahasiswa") {
+  if (auth) {
+    if (auth.role === "mahasiswa") {
       if (window.location.pathname != "/mahasiswa/dashboard.html") window.location.href = "../../mahasiswa/dashboard.html";
     } else {
       if (window.location.pathname != "/dosen/dashboard.html") window.location.href = "../../dosen/dashboard.html";
