@@ -12,12 +12,6 @@ const data_user = [
     role: "mahasiswa",
   },
   {
-    nama: "Haikal Bagas Putra",
-    username: "3202316104",
-    password: "asda",
-    role: "mahasiswa",
-  },
-  {
     nama: "Suharsono",
     username: "0001",
     password: "asda",

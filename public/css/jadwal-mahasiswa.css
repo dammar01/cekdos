@@ -1,0 +1,78 @@
+@import url("./main-style.css");
+
+.stat-disetujui {
+  background-color: #007f5f;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.stat-pending {
+  background-color: #c79c33;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.stat-selesai {
+  background-color: #0000d6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dt-input {
+  background-color: var(--secondary-color);
+  color: var(--foreground-color);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.dt-paging-button {
+  background-color: var(--secondary-color);
+  color: var(--foreground-color);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dt-paging-button.current {
+  background-color: var(--tiernary-color) !important;
+}
+
+.dt-paging-button.disabled {
+  cursor: default !important;
+  background-color: var(--secondary-color);
+  opacity: 0.3;
+}
+
+.dataTable {
+  background-color: var(--secondary-color);
+}
+.dataTable td,
+.dataTable th {
+  padding: 0.75rem;
+}
+.dataTable th {
+  background-color: var(--tiernary-color);
+}
+
+.dataTable td {
+  border-bottom: 1px solid var(--tiernary-color);
+}
+
+.dt-type-numeric {
+  text-align: start !important;
+}
