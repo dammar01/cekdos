@@ -46,9 +46,6 @@ if (!localStorage.getItem("data_user")) {
       password: "asda",
       nim_mahasiswa: ["3202316085"],
       role: "dosen",
-      data: {
-        jadwal_saya: [],
-      },
     },
     {
       nama: "Satriyo",
@@ -56,9 +53,6 @@ if (!localStorage.getItem("data_user")) {
       password: "asda",
       nim_mahasiswa: ["3202316104"],
       role: "dosen",
-      data: {
-        jadwal_saya: [],
-      },
     },
   ];
   localStorage.setItem("data_user", JSON.stringify(data_user));

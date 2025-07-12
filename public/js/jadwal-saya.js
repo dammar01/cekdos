@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const auth = JSON.parse(localStorage.getItem("auth"));
-  const data_table = auth.data.jadwal_saya;
   if (auth.role === "mahasiswa") {
+    const data_table = auth.data.jadwal_saya;
     $("#jadwal-saya-mahasiswa").DataTable({
       data: data_table,
       columnDefs: [
@@ -62,6 +62,7 @@ $(document).ready(function () {
       ],
     });
   } else {
+    const data_table = [];
     $("#jadwal-saya-dosen").DataTable({
       data: data_table,
       dom:
