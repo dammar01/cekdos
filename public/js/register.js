@@ -12,57 +12,39 @@ $(document).ready(function () {
   });
 
   // Redirect jika sudah login
-  const auth = localStorage.getItem("auth");
   if (auth) {
     const parsed_user = JSON.parse(auth);
     if (parsed_user.role === "mahasiswa") {
       window.location.href = "../../mahasiswa/dashboard.html";
-    } else if (parsed_user.role === "dosen") {
+    } else {
       window.location.href = "../../dosen/dashboard.html";
     }
   }
 
-  // Fungsi untuk validasi NIM/NIP
-  function validateUsername(username) {
-    // NIM mahasiswa biasanya 10 digit, NIP dosen biasanya 4 digit (berdasarkan data sample)
-    if (username.length === 10 && /^\d+$/.test(username)) {
-      return "mahasiswa";
-    } else if (username.length === 4 && /^\d+$/.test(username)) {
-      return "dosen";
-    }
-    return null;
-  }
-
-  // Fungsi untuk mengecek apakah username sudah ada
-  function isUsernameExists(username) {
-    const data_user = JSON.parse(localStorage.getItem("data_user") || "[]");
-    return data_user.some(user => user.username === username);
-  }
-
-  // Event handler untuk form registrasi
   $("#btn-register").on("click", function (e) {
     e.preventDefault();
     
+    // Ambil data dari form
     const nama = $("#name").val().trim();
     const username = $("#username").val().trim();
     const dosenPembimbing = $("#dosen-pembimbing").val().trim();
     const password = $("#password").val();
     const confirmPassword = $("#confirm_password").val();
 
-    // Validasi input kosong
-    if (!nama || !username || !password || !confirmPassword) {
+    // Validasi form
+    if (!nama || !username || !dosenPembimbing || !password || !confirmPassword) {
       Toast.fire({
         icon: "error",
-        title: "Semua field wajib diisi",
+        title: "Semua field harus diisi!",
       });
       return;
     }
 
-    // Validasi password confirmation
+    // Validasi password
     if (password !== confirmPassword) {
       Toast.fire({
         icon: "error",
-        title: "Password dan konfirmasi password tidak cocok",
+        title: "Password dan Konfirmasi Password tidak cocok!",
       });
       return;
     }
@@ -71,87 +53,129 @@ $(document).ready(function () {
     if (password.length < 4) {
       Toast.fire({
         icon: "error",
-        title: "Password minimal 4 karakter",
+        title: "Password minimal 4 karakter!",
       });
       return;
     }
 
-    // Validasi format username (NIM/NIP)
-    const role = validateUsername(username);
-    if (!role) {
+    // Ambil data user dari localStorage
+    const data_user = JSON.parse(localStorage.getItem("data_user"));
+    
+    // Cek apakah username sudah ada
+    const existingUser = data_user.find((item) => item.username === username);
+    if (existingUser) {
       Toast.fire({
         icon: "error",
-        title: "Format username tidak valid. Gunakan NIM (10 digit) atau NIP (4 digit)",
+        title: "Username sudah terdaftar!",
       });
       return;
     }
 
-    // Validasi dosen pembimbing hanya untuk mahasiswa
-    if (role === "mahasiswa" && !dosenPembimbing) {
+    // Cek apakah dosen pembimbing ada (berdasarkan username dosen)
+    const dosenExists = data_user.find((item) => item.role === "dosen" && item.username === dosenPembimbing);
+    if (!dosenExists) {
       Toast.fire({
         icon: "error",
-        title: "Dosen pembimbing wajib diisi untuk mahasiswa",
+        title: "Dosen pembimbing tidak ditemukan!",
       });
       return;
     }
 
-    // Cek apakah username sudah terdaftar
-    if (isUsernameExists(username)) {
-      Toast.fire({
-        icon: "error",
-        title: "Username sudah terdaftar",
-      });
-      return;
-    }
-
-    // Buat objek user baru
+    // Buat user baru
     const newUser = {
       nama: nama,
       username: username,
+      nip_dospem: dosenPembimbing,
       password: password,
-      role: role,
+      role: "mahasiswa",
       data: {
         jadwal_saya: [],
       },
     };
 
-    // Tambahkan dosen pembimbing jika role adalah mahasiswa
-    if (role === "mahasiswa") {
-      newUser.data.dosen_pembimbing = dosenPembimbing;
+    // Tambahkan user baru ke data_user
+    data_user.push(newUser);
+
+    // Update data dosen pembimbing (tambahkan NIM mahasiswa baru)
+    const dosenIndex = data_user.findIndex((item) => item.username === dosenPembimbing && item.role === "dosen");
+    if (dosenIndex !== -1) {
+      if (!data_user[dosenIndex].nim_mahasiswa) {
+        data_user[dosenIndex].nim_mahasiswa = [];
+      }
+      data_user[dosenIndex].nim_mahasiswa.push(username);
     }
 
-    // Ambil data user yang sudah ada
-    const data_user = JSON.parse(localStorage.getItem("data_user") || "[]");
-    
-    // Tambahkan user baru
-    data_user.push(newUser);
-    
-    // Simpan kembali ke localStorage
+    // Simpan data yang sudah diupdate ke localStorage
     localStorage.setItem("data_user", JSON.stringify(data_user));
 
     // Tampilkan pesan sukses
     Toast.fire({
       icon: "success",
-      title: `Berhasil mendaftar sebagai ${role}`,
+      title: "Registrasi berhasil! Silakan login.",
     });
 
-    // Auto login setelah registrasi
-    localStorage.setItem("auth", JSON.stringify(newUser));
+    // Reset form
+    $("#registerForm")[0].reset();
 
-    // Redirect ke dashboard sesuai role
+    // Redirect ke halaman login setelah 2 detik
     setTimeout(() => {
-      if (role === "mahasiswa") {
-        window.location.href = "../../mahasiswa/dashboard.html";
-      } else if (role === "dosen") {
-        window.location.href = "../../dosen/dashboard.html";
-      }
-    }, 1000);
+      window.location.href = "login.html";
+    }, 2000);
   });
 
-  // Event handler untuk tombol Enter
-  $("#registerForm").on("keypress", function (e) {
-    if (e.which === 13) {
-      $("#btn-register").click();
+  // Validasi real-time untuk konfirmasi password
+  $("#confirm_password").on("input", function () {
+    const password = $("#password").val();
+    const confirmPassword = $(this).val();
+    
+    if (confirmPassword && password !== confirmPassword) {
+      $(this).addClass("border-red-500");
+      $(this).removeClass("border-gray-600");
+    } else {
+      $(this).removeClass("border-red-500");
+      $(this).addClass("border-gray-600");
+    }
+  });
+
+  // Validasi real-time untuk username (cek ketersediaan)
+  $("#username").on("blur", function () {
+    const username = $(this).val().trim();
+    if (username) {
+      const data_user = JSON.parse(localStorage.getItem("data_user"));
+      const existingUser = data_user.find((item) => item.username === username);
+      
+      if (existingUser) {
+        $(this).addClass("border-red-500");
+        $(this).removeClass("border-gray-600");
+        Toast.fire({
+          icon: "warning",
+          title: "Username sudah terdaftar!",
+        });
+      } else {
+        $(this).removeClass("border-red-500");
+        $(this).addClass("border-gray-600");
+      }
+    }
+  });
+
+  // Validasi real-time untuk dosen pembimbing
+  $("#dosen-pembimbing").on("blur", function () {
+    const dosenPembimbing = $(this).val().trim();
+    if (dosenPembimbing) {
+      const data_user = JSON.parse(localStorage.getItem("data_user"));
+      const dosenExists = data_user.find((item) => item.role === "dosen" && item.username === dosenPembimbing);
+      
+      if (!dosenExists) {
+        $(this).addClass("border-red-500");
+        $(this).removeClass("border-gray-600");
+        Toast.fire({
+          icon: "warning",
+          title: "Dosen pembimbing tidak ditemukan!",
+        });
+      } else {
+        $(this).removeClass("border-red-500");
+        $(this).addClass("border-gray-600");
+      }
     }
   });
 });
