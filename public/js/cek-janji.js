@@ -2,73 +2,8 @@ $(document).ready(function () {
   const auth = JSON.parse(localStorage.getItem("auth"));
   const dataUser = JSON.parse(localStorage.getItem("data_user"));
 
-  const data_dosen_buat_janji = [
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-    [
-      "3202316104",
-      "Haikal Bagas Putra",
-      '<button class="button-aksi" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Janji</button>',
-    ],
-  ];
+  // Bagian dosen-buat-janji tidak diubah
+  const data_dosen_buat_janji = [];
   $("#dosen-buat-janji").DataTable({
     data: data_dosen_buat_janji,
     dom:
@@ -102,28 +37,47 @@ $(document).ready(function () {
     ],
   });
 
-  const mahasiswaBimbingan = dataUser.filter((user) => user.role === "mahasiswa" && user.nip_dospem === auth.nip_dospem);
-  const data_mahasiswa_buat_janji = [];
-  mahasiswaBimbingan.forEach((mhs) => {
-    const nim = mhs.username;
-    const nama = mhs.nama;
+  // Fungsi untuk membangun data mahasiswa
+  function buildMahasiswaData() {
+    const mahasiswaBimbingan = dataUser.filter((user) => user.role === "mahasiswa" && user.nip_dospem === auth.nip_dospem);
+    const data_mahasiswa_buat_janji = [];
 
-    mhs.data.jadwal_saya.forEach(([tanggalStr, statusCode]) => {
-      const statusHTML =
-        statusCode === 0
-          ? "<span class='stat-pending'>Pending</span>"
-          : statusCode === 1
-          ? "<span class='stat-disetujui'>Disetujui</span>"
-          : statusCode === 2
-          ? "<span class='stat-selesai'>Selesai</span>"
-          : "<span class='stat-ditolak'>Ditolak</span>";
+    mahasiswaBimbingan.forEach((mhs) => {
+      const nim = mhs.username;
+      const nama = mhs.nama;
 
-      data_mahasiswa_buat_janji.push([nim, nama, tanggalStr, statusHTML]);
+      // Pastikan data.jadwal_saya ada dan berupa array
+      if (mhs.data && mhs.data.jadwal_saya && Array.isArray(mhs.data.jadwal_saya)) {
+        mhs.data.jadwal_saya.forEach(([tanggalStr, statusCode]) => {
+          const statusHTML =
+            statusCode === 0
+              ? "<span class='stat-pending'>Pending</span>"
+              : statusCode === 1
+              ? "<span class='stat-disetujui'>Disetujui</span>"
+              : statusCode === 2
+              ? "<span class='stat-selesai'>Selesai</span>"
+              : "<span class='stat-ditolak'>Ditolak</span>";
+
+          data_mahasiswa_buat_janji.push([nim, nama, tanggalStr, statusHTML]);
+        });
+      }
     });
-  });
 
-  $("#mahasiswa-buat-janji").DataTable({
+    return data_mahasiswa_buat_janji;
+  }
+
+  // Inisialisasi data mahasiswa
+  const data_mahasiswa_buat_janji = buildMahasiswaData();
+
+  // Inisialisasi DataTable mahasiswa
+  const table_mahasiswa = $("#mahasiswa-buat-janji").DataTable({
     data: data_mahasiswa_buat_janji,
+    columns: [
+      { title: "NIM", data: 0 },
+      { title: "Nama", data: 1 },
+      { title: "Tanggal", data: 2 },
+      { title: "Status", data: 3 },
+    ],
     dom:
       "<'row align-items-center'" +
       "<'col-auto'<'row d-flex flex-row align-items-center justify-content-start' <'col-auto showdata 'l><'col-auto mb-0'B>>>" +
@@ -154,6 +108,8 @@ $(document).ready(function () {
       [10, 25, 50, "All"],
     ],
   });
+
+  // Event handler untuk save janji
   $("#save-janji").on("click", function () {
     const Toast = Swal.mixin({
       toast: true,
@@ -176,7 +132,33 @@ $(document).ready(function () {
       });
       return;
     }
+
+    // Cari user berdasarkan username
     const userIndex = dataUser.findIndex((user) => user.username === auth.username);
+
+    if (userIndex === -1) {
+      Toast.fire({
+        icon: "error",
+        title: "User tidak ditemukan di data_user.",
+      });
+      return;
+    }
+
+    // Pastikan struktur data ada
+    if (!dataUser[userIndex].data) {
+      dataUser[userIndex].data = {};
+    }
+    if (!dataUser[userIndex].data.jadwal_saya) {
+      dataUser[userIndex].data.jadwal_saya = [];
+    }
+    if (!auth.data) {
+      auth.data = {};
+    }
+    if (!auth.data.jadwal_saya) {
+      auth.data.jadwal_saya = [];
+    }
+
+    // Cek apakah tanggal sudah ada
     const alreadyExists = dataUser[userIndex].data.jadwal_saya.some(([tanggal]) => tanggal === tanggalJanji);
     if (alreadyExists) {
       Toast.fire({
@@ -185,19 +167,33 @@ $(document).ready(function () {
       });
       return;
     }
-    if (userIndex !== -1) {
-      dataUser[userIndex].data.jadwal_saya.push([tanggalJanji, 0]);
-      auth.data.jadwal_saya.push([tanggalJanji, 0]);
-      localStorage.setItem("data_user", JSON.stringify(dataUser));
-      localStorage.setItem("auth", JSON.stringify(auth));
-      Toast.fire({
-        icon: "success",
-        title: "Tanggal janji " + tanggalJanji + " Berhasil disimpan",
-      });
-      $("#tanggal-janji").val("");
-      $("#exampleModal").modal("hide");
-    } else {
-      alert("User tidak ditemukan di data_user.");
-    }
+
+    // Tambahkan data baru
+    dataUser[userIndex].data.jadwal_saya.push([tanggalJanji, 0]);
+    auth.data.jadwal_saya.push([tanggalJanji, 0]);
+
+    // Update localStorage
+    localStorage.setItem("data_user", JSON.stringify(dataUser));
+    localStorage.setItem("auth", JSON.stringify(auth));
+
+    // Tambahkan baris baru ke tabel
+    const newRowData = [
+      auth.username, // NIM
+      auth.nama, // Nama
+      tanggalJanji, // Tanggal
+      "<span class='stat-pending'>Pending</span>", // Status
+    ];
+
+    table_mahasiswa.row.add(newRowData).draw();
+
+    // Tampilkan pesan sukses
+    Toast.fire({
+      icon: "success",
+      title: "Tanggal janji " + tanggalJanji + " Berhasil disimpan",
+    });
+
+    // Reset form
+    $("#tanggal-janji").val("");
+    $("#exampleModal").modal("hide");
   });
 });
