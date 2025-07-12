@@ -44,7 +44,7 @@ if (!localStorage.getItem("data_user")) {
       nama: "Suharsono",
       username: "0001",
       password: "asda",
-      nim_mahasiswa: ["3202316085"],
+      nim_mahasiswa: ["3202316085", "3202316563"],
       role: "dosen",
     },
     {
