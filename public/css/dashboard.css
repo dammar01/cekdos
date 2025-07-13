@@ -1,0 +1,21 @@
+@import url("./main-style.css");
+
+#section-dashboard {
+  margin: 0 clamp(2rem, 5vw, 8rem);
+  margin-top: 3rem;
+}
+
+.dashboard-card {
+  background-color: var(--primary-color);
+  color: var(--foreground-color);
+  text-decoration: none;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  width: 10rem;
+}
+
+.dashboard-card:hover {
+  opacity: 1;
+}

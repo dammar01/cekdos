@@ -78,6 +78,19 @@ $(document).ready(function () {
       { title: "Tanggal", data: 2 },
       { title: "Status", data: 3 },
     ],
+    columnDefs: [
+      {
+        targets: 2,
+        render: function (data) {
+          const date = new Date(data);
+          return date.toLocaleDateString("id-ID", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          });
+        },
+      },
+    ],
     dom:
       "<'row align-items-center'" +
       "<'col-auto'<'row d-flex flex-row align-items-center justify-content-start' <'col-auto showdata 'l><'col-auto mb-0'B>>>" +

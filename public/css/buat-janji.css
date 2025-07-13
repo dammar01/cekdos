@@ -28,6 +28,22 @@
   background-color: #035d43;
 }
 
+.button-tutup {
+  background-color: #a8a8a8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-tutup:hover {
+  background-color: #666666;
+}
+
 .stat-disetujui {
   background-color: #007f5f;
   color: white;
