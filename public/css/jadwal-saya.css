@@ -7,6 +7,7 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
 .stat-pending {
   background-color: #c79c33;
@@ -15,7 +16,14 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
+
+.stat-action {
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
 .stat-selesai {
   background-color: #0000d6;
   color: white;
@@ -23,6 +31,7 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
 
 .stat-ditolak {
@@ -32,6 +41,7 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
 
 .table-responsive {
@@ -45,6 +55,54 @@
   border: none;
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
+}
+
+.button-aksi {
+  background-color: #047857;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-aksi:hover {
+  background-color: #035d43;
+}
+
+.button-tutup {
+  background-color: #a8a8a8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-tutup:hover {
+  background-color: #666666;
+}
+
+.button-tolak {
+  background-color: #d60000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-tolak:hover {
+  background-color: #d60000;
 }
 
 .dt-paging-button {

@@ -43,7 +43,6 @@
 .button-tutup:hover {
   background-color: #666666;
 }
-
 .stat-disetujui {
   background-color: #007f5f;
   color: white;
@@ -51,8 +50,8 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
-
 .stat-pending {
   background-color: #c79c33;
   color: white;
@@ -60,6 +59,7 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
 
 .stat-selesai {
@@ -69,6 +69,7 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
 
 .stat-ditolak {
@@ -78,6 +79,7 @@
   border-radius: 6px;
   font-weight: 500;
   font-size: 14px;
+  opacity: 0.5;
 }
 
 .table-responsive {
