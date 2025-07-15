@@ -1,19 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page | CEKDOS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./public/css/landing-page.css" />
-    <link rel="shortcut icon" href="./public/image/logo.png" />
-  </head>
-  <body>
-    tes
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page | CEKDOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./public/css/landing-page.css" />
+  <link rel="shortcut icon" href="./public/image/logo.png" />
+</head>
+
+<body>
+  <!-- navbar -->
+  <header>
+    <nav>
+      <ul>
+        <li class="nav-logo">
+          <img src="public/image/logo.png" alt="cekdos" />
+          <a href="#">CEKDOS</a>
+        </li>
+        <li><a href="#" class="nav-menu-hidden">Beranda</a></li>
+        <li><a href="#fitur" class="nav-menu-hidden">Fitur</a></li>
+        <li><a href="#footer" class="nav-menu-hidden">Tentang</a></li>
+      </ul>
+      <ul>
+        <li ><a href="login.html" class="masuk">Masuk</a></li>
+        <li ><a href="register.html" class="daftar">Daftar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-content">
+      <img class="calender-column" src="public/image/calender.png" alt="calender" />
+      <h1>Temukan Waktu Terbaikmu Dengan Dosen!</h1>
+      <p>Buat jadwal pertemuan anda dengan dosen lebih mudah di CEKDOS!</p>
+      <a href="register.html" style="text-decoration: none; color: #e6e6e6;">Ayo Mulai!</a>
+    </div>
+    <img class="calender-row" src="public/image/calender.png" alt="calender" />
+  </section>
+
+  <!-- Fitur -->
+  <section id="fitur">
+    <div class="fitur-container">
+      <div class="fitur-title-wrapper">
+        <p>Fitur Utama CEKDOS</p>
+        <h1>Beberapa Fitur Utama Dari CEKDOS</h1>
+      </div>
+      <div class="fitur-content">
+        <div>
+          <img src="public/image/clock.png" alt="icon" />
+          <h3>Kelola Jadwal</h3>
+          <p>Lakukan pengelolan jadwal yang telah anda buat sebelumnya</p>
+        </div>
+        <div>
+          <img src="public/image/calendar-plus-icon.png" alt="icon" />
+          <h3>Buat Jadwal</h3>
+          <p>Membuat jadwal pertemuan anda dengan dosen secara langsung berdasarkan data jadwal perkuliahan
+          </p>
+        </div>
+        <div>
+          <img src="public/image/cap-icon.png" alt="icon" />
+          <h3>Jadwal khusus Dosen</h3>
+          <p>Pembuatan jadwal khusus selain dari jadwal perkuliahan yang telah ada</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-title-wrapper">
+        <h2>Buat jadwal pertemuaan anda menjadi lebih mudah di CEKDOS</h2>
+        <div>
+          <img style="max-width: 70px; padding-right: 15px;" src="public/image/logo.png" alt="cekdos">
+          <p style="width: 0;">CEKDOS</p>
+        </div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-content-wrapper">
+          <p style="margin: 0; font-weight: bold;">Tentang CEKDOS</p>
+          <p style="color: #A8A8A8;">CEKDOS merupakan sebuah forum yang menyediakan fitur dimana seorang mahasiswa yang
+            kesulitan
+            menemukan
+            jadwal yang pas untuk menemui dosen pengampunya.</p>
+          <div>
+          </div>
+        </div>
+        <div class="footer-navbar">
+          <div class="logo-footer">
+            <img style="max-width: 70px;" src="public/image/logo.png" alt="cekdos">
+            <p class="logo-name">CEKDOS</p>
+          </div>
+          <ul>
+            <li><a href="#">Beranda</a></li>
+            <li> <a href="#fitur">Fitur</a></li>
+            <li> <a href="#footer">Tentang</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+
 </html>

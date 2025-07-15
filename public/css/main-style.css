@@ -454,6 +454,12 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 512px) {
+  #navbar-username {
+    display: none;
+  }
+}
+
 .position-relative {
   position: relative;
 }

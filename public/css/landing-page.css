@@ -1,1 +1,434 @@
 @import url("./main-style.css");
+
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+/* navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-logo img {
+    max-width: 70px;
+    padding-right: 15px;
+    height: auto;
+}
+
+.nav-logo a {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.masuk {
+    background-color: #2C2C2C;
+    padding: 10px 15px;
+    border-radius: 7px;
+}
+
+.masuk:hover {
+    background-color: #222121;
+    transition: 0.3s ease;
+}
+
+.daftar {
+    background-color: #FE6F30;
+    padding: 10px 17px;
+    border-radius: 7px;
+}
+
+.daftar:hover {
+    background-color: #d6541c;
+    transition: 0.3s ease;
+}
+
+/* hero */
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 20px;
+    height: 65vh;
+}
+
+
+.calender-row {
+    /* max-width: 35%; */
+    max-width: 500px;
+    height: auto;
+}
+
+.calender-column {
+    max-width: 70%;
+    height: auto;
+    display: none;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 20px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.hero-content p {
+    color: #A8A8A8;
+    font-size: larger;
+    line-height: 1.6;
+}
+
+.hero-content a {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FE6F30;
+    color: #e6e6e6;
+    border: none;
+}
+
+.hero-content a:hover {
+    background-color: #d6541c;
+    transition: 0.3s ease;
+}
+
+
+
+/* Fitur */
+
+#fitur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.fitur-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #191919;
+    padding: 50px 90px;
+    border-radius: 20px;
+    gap: 40px;
+    max-width: 1200px;
+}
+
+.fitur-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.fitur-title-wrapper p {
+    color: #FE6F30;
+}
+
+.fitur-title-wrapper h1 {
+    font-size: 50px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.fitur-content {
+    display: flex;
+    gap: 60px;
+}
+
+.fitur-content div h3 {
+    margin: 0;
+}
+
+.fitur-content div {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    gap: 15px;
+    line-height: 1.6;
+}
+
+
+.fitur-content div img {
+    max-width: 50px;
+}
+
+.fitur-content div p {
+    color: #A8A8A8;
+    margin: 0;
+}
+
+/* footer */
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #191919;
+    padding: 50px 90px;
+    border-radius: 20px;
+    gap: 40px;
+    max-width: 1180px;
+    width: 100%;
+}
+
+.footer-title-wrapper {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    border-bottom: #2C2C2C solid 1px;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.footer-title-wrapper h2 {
+    max-width: 350px;
+}
+
+.footer-title-wrapper div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.footer-title-wrapper div p {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+}
+
+.footer-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    gap: 15px;
+    line-height: 1.6;
+}
+
+
+.footer-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    /* width: 100%; */
+    gap: 20px;
+}
+
+.footer-navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+}
+
+.footer-navbar ul li {
+    list-style-type: none;
+}
+
+.footer-navbar ul li a {
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+.logo-footer {
+    display: none;
+}
+
+.logo-name {
+    display: none;
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 745px) {
+    .nav-menu-hidden {
+        display: none;
+    }
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .calender-row {
+        max-width: 50%;
+    }
+}
+
+
+@media only screen and (max-width: 780px) {
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .calender-row {
+        display: none;
+    }
+
+    .calender-column {
+        display: block;
+    }
+
+    .hero-content {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-content h1 {
+        text-align: center;
+    }
+
+    .hero-content p {
+        text-align: center;
+    }
+
+    .fitur-content {
+        flex-direction: column;
+    }
+
+    .footer-title-wrapper {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    #hero {
+        height: auto;
+    }
+
+    .footer-title-wrapper div {
+        display: none;
+    }
+
+    .footer-navbar ul {
+        flex-direction: row;
+    }
+
+    .footer-navbar {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .logo-footer {
+        display: block;
+    }
+
+    #fitur {
+        padding: 50px 0;
+    }
+
+    #footer {
+        padding: 50px 0;
+        padding-bottom: 0;
+    }
+
+    .fitur-title-wrapper h1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+
+    .logo-footer {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-name {
+        display: block;
+        font-size: large;
+    }
+
+    .footer-navbar {
+        gap: 40px;
+    }
+
+}
+
+@media only screen and (max-width: 585px) {
+    .footer-navbar {
+        padding-top: 40px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .fitur-container {
+        padding: 50px 50px;
+    }
+
+    .footer-container {
+        padding: 50px 50px;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    .masuk {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .footer-navbar {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
